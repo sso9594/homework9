@@ -117,28 +117,29 @@ int initializeBST(Node** h) {
 
 void inorderTraversal(Node* ptr)	//중위 순회를 하는 함수
 {
-		// 노드가 존재할 경우 실행
+	if (ptr){	// 노드가 존재할 경우 실행
 		inorderTraversal(ptr->left); //왼쪽 자식노드 먼저 출력
 		printf(" [%d] ", ptr->key);	//부모노드 출력
 		inorderTraversal(ptr->right);//오른쪽 자식노드 출력
-	
+	}
 }
 
 void preorderTraversal(Node* ptr)	//전위 순회를 하는 함수
 {
-	
+	if (ptr){
 		printf(" [%d] ", ptr->key);	//부모노드를 먼저 출력
 		preorderTraversal(ptr->left); //왼쪽 자식노드 출력
 		preorderTraversal(ptr->right); //오른쪽 자식노드 출력
-	
+	}
 }
 
 void postorderTraversal(Node* ptr)	//후위 순회를 하는 함수
 {
+	if (ptr){
 		postorderTraversal(ptr->left);	//왼쪽 자식노드를 먼저 출력
 		postorderTraversal(ptr->right);	//오른쪽 자식노드 출력
 		printf(" [%d] ", ptr->key);  //부모 노드 출력
-	
+	}
 }
 
 
@@ -245,6 +246,8 @@ int deleteLeafNode(Node* head, int key) //트리의 노드를 삭제하는 함�
 
 Node* searchRecursive(Node* ptr, int key) //재귀검색함수
 {
+		if (ptr == NULL) //만약 트리가 비어있다면
+		return NULL;	//NULL을 리턴한다
 	
 	if (ptr->key < key) //현재위치의 노드의 키값이 찾는 키값보다 작은경우
 		ptr = searchRecursive(ptr->right, key); //오른쪽자식노드로 이동하여 검색한다
