@@ -24,6 +24,8 @@ void freeNode(Node* ptr);
 
 int main()
 {
+	printf("[----- [Your Name] [Student ID] -----]");
+	printf("\t신승용\
 	char command;
 	int key;
 	Node* head = NULL;
